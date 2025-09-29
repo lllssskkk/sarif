@@ -82,7 +82,7 @@ instance FromJSON LogicalLocationKind where
       "array" -> pure JSONArrayKind
       "property" -> pure JSONPropertyKind
       "value" -> pure JSONValueKind
-      _ -> fail $ "Unknown LogicalLocationKind: " ++ show t
+      _ -> fail $ "Unknown LogicalLocationKind: " ++ unpack t
 
 data LogicalLocation = MkLogicalLocation
   { -- | The index property of a logicalLocation object

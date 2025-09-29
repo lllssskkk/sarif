@@ -57,7 +57,7 @@ instance FromJSON AddressKind where
       "stack" -> pure StackKind
       "module" -> pure ModuleKind
       "table" -> pure TableKind
-      _ -> fail $ "Unknown AddressKind: " ++ show t
+      _ -> fail $ "Unknown AddressKind: " ++ unpack t
 
 --------------------------------------------------------------------------------
 
