@@ -57,8 +57,8 @@ instance FromJSON Location where
   parseJSON = withObject "Location" $ \obj ->
     MkLocation
       <$> obj .:? "id"
-      <*> obj .:? "locationPhysicalLocation"
-      <*> obj .:? "locationLogicalLocations"
+      <*> obj .:? "physicalLocation"
+      <*> obj .:? "logicalLocations"
       <*> obj .:? "message"
       <*> obj .:? "annotations"
       <*> obj .:? "relationships"
