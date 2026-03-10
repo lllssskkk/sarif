@@ -47,7 +47,7 @@ instance ToJSON PhysicalLocation where
       ]
 
 instance FromJSON PhysicalLocation where
-  parseJSON = withObject "ReportingDescriptorReference" $ \obj ->
+  parseJSON = withObject "PhysicalLocation" $ \obj ->
     MkPhysicalLocation
       <$> obj .:? "artifactLocation"
       <*> obj .:? "region"
