@@ -27,7 +27,7 @@ data ArtifactLocation = MkArtifactLocation
     -- | The properties property of an ArtifactLocation object
     artifactLocProperties :: Maybe (Map Text Value)
   }
-  deriving (Show, Ord)
+  deriving (Show)
 
 instance Eq ArtifactLocation where
   (==) a b =
@@ -35,6 +35,13 @@ instance Eq ArtifactLocation where
       && artifactLocUriBaseId a == artifactLocUriBaseId b
       && artifactLocDescription a == artifactLocDescription b
       && artifactLocProperties a == artifactLocProperties b
+
+instance Ord ArtifactLocation where
+  compare a b =
+    compare (artifactLocUri a) (artifactLocUri b)
+      <> compare (artifactLocUriBaseId a) (artifactLocUriBaseId b)
+      <> compare (artifactLocDescription a) (artifactLocDescription b)
+      <> compare (artifactLocProperties a) (artifactLocProperties b)
 
 instance ToJSON ArtifactLocation where
   toJSON MkArtifactLocation {..} =
