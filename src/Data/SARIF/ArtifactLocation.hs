@@ -29,6 +29,13 @@ data ArtifactLocation = MkArtifactLocation
   }
   deriving (Eq, Show, Ord)
 
+instance Eq ArtifactLocation where
+  (==) a b =
+    artifactLocUri a == artifactLocUri b
+      && artifactLocUriBaseId a == artifactLocUriBaseId b
+      && artifactLocDescription a == artifactLocDescription b
+      &
+
 instance ToJSON ArtifactLocation where
   toJSON MkArtifactLocation {..} =
     object
